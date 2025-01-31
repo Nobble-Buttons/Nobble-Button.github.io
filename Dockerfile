@@ -7,7 +7,7 @@ RUN chown -R jekyll:jekyll /srv/jekyll
 
 USER jekyll
 
-RUN jekyll build
+RUN /usr/gem/bin/jekyll build
 
 EXPOSE 4000
 
