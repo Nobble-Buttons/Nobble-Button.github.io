@@ -1,4 +1,4 @@
-FROM jekyll/builder
+FROM jekyll/jekyll:4
 
 WORKDIR /srv/jekyll
 
