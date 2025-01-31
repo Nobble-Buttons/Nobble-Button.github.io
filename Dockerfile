@@ -4,12 +4,15 @@ WORKDIR /srv/jekyll
 
 COPY . .
 
-RUN bundle install
-
+# Change ownership of the files to the jekyll user
 RUN chown -R jekyll:jekyll /srv/jekyll
 
 USER jekyll
 
+# Ensure the jekyll user has write permissions
+RUN chmod -R u+w /srv/jekyll
+
+RUN bundle install
 RUN jekyll build
 
 EXPOSE 4000
