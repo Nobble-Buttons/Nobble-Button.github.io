@@ -12,10 +12,13 @@ USER jekyll
 # Ensure the jekyll user has write permissions
 RUN chmod -R u+w /srv/jekyll
 
-# Update bundler to the latest version
-RUN gem install bundler
+# Install a specific version of bundler
+RUN gem install bundler -v 2.3.26
 
+# Install dependencies
 RUN bundle install
+
+# Build the site
 RUN jekyll build
 
 EXPOSE 4000
