@@ -7,6 +7,7 @@ RUN chown -R jekyll:jekyll /srv/jekyll
 
 USER jekyll
 
+RUN bundle install
 RUN jekyll build
 
 EXPOSE 4000
