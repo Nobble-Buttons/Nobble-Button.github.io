@@ -1,4 +1,4 @@
-FROM jekyll/jekyll:4
+FROM jekyll/builder
 
 WORKDIR /srv/jekyll
 COPY . .
@@ -7,7 +7,7 @@ RUN chown -R jekyll:jekyll /srv/jekyll
 
 USER jekyll
 
-RUN /usr/gem/bin/jekyll build
+RUN jekyll build
 
 EXPOSE 4000
 
