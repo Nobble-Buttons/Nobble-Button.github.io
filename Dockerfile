@@ -2,10 +2,14 @@ FROM jekyll/builder
 
 WORKDIR /srv/jekyll
 
-COPY Gemfile .
+COPY . .
+
 RUN bundle install
 
-COPY . .
+RUN chown -R jekyll:jekyll /srv/jekyll
+
+USER jekyll
+
 RUN jekyll build
 
 EXPOSE 4000
