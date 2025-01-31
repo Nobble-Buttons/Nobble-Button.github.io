@@ -3,10 +3,6 @@ FROM jekyll/builder
 WORKDIR /srv/jekyll
 COPY . .
 
-RUN chown -R jekyll:jekyll /srv/jekyll
-
-USER jekyll
-
 RUN bundle install
 RUN jekyll build
 
