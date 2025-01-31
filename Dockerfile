@@ -1,9 +1,11 @@
 FROM jekyll/builder
 
 WORKDIR /srv/jekyll
-COPY . .
 
+COPY Gemfile .
 RUN bundle install
+
+COPY . .
 RUN jekyll build
 
 EXPOSE 4000
